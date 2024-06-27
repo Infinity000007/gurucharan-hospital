@@ -4,174 +4,181 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Digital Card</title>
+   <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Card</title>
     <style>
-    body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-        background-color: #f4f4f4;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        min-height: 100vh;
-    }
-    .card {
-        width: 100%;
-        max-width: 400px;
-        background-color: #fff;
-        border-radius: 10px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        overflow: hidden;
-        text-align: left;
-        position: relative;
-        margin-bottom: 80px; /* Ensure space for fixed footer */
-    }
-    .header-img {
-        width: 100%;
-        height: 200px; /* Increased banner height */
-        object-fit: cover;
-    }
-    .profile-section {
-        display: flex;
-        align-items: center;
-        padding: 15px;
-    }
-    .profile-img {
-        width: 100px; /* Increased profile image size */
-        height: 100px; /* Increased profile image size */
-        border-radius: 10px;
-        margin-right: 15px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    }
-    .profile-details h1 {
-        font-size: 18px;
-        font-family: Cambria; /* Suggested font for profile name */
-        color: #333;
-        margin: 0;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-    }
-    .profile-details p {
-        font-size: 14px;
-        color: #666;
-        margin: 5px 0 0;
-    }
-    .icons {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-around;
-        padding: 15px;
-    }
-    .icon {
-        width: calc(33.33% - 20px); /* Adjusted for 3 columns with margins */
-        max-width: 100px; /* Max width for consistency */
-        background-color: #fff;
-        border: 2px solid #dedede;
-        border-radius: 20px;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Added shadow */
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin: 10px;
-        flex-direction: column;
-        transition: transform 0.2s, box-shadow 0.2s;
-    }
-    .icon img {
-        width: 35px; /* Increased icon size */
-        height: 35px; /* Increased icon size */
-        margin-bottom: 10px;
-    }
-    .icon span {
-        font-size: 12px;
-        font-family: Arial, sans-serif; /* Suggested font for icon text */
-        font-weight: bold;
-        color: #333;
-        text-align: center;
-        text-decoration: none;
-    }
-    .icon:hover {
-        transform: scale(1.1);
-        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Added hover shadow */
-    }
-    .services-section {
-        background-color: #fff;
-        padding: 10px 15px;
-        border: 1px solid #dedede;
-        border-radius: 10px;
-        margin: 10px 0;
-        display: none;
-    }
-    .services-section.active {
-        display: block;
-    }
-    .toggle-btn {
-        color: #a12441;
-        font-weight: bold;
-        cursor: pointer;
-        text-decoration: none;
-        text-align: center;
-        display: block;
-        padding: 10px 15px;
-        margin: 15px 0;
-        background-color: #fff;
-        border: 1px solid #dedede;
-        border-radius: 10px;
-        width: calc(100% - 30px); /* Matching width with the card */
-        margin-left: auto;
-        margin-right: auto;
-        position: relative;
-        z-index: 1;
-    }
-    .toggle-btn::before {
-        content: "▼ ";
-        display: inline-block;
-        transition: transform 0.2s;
-        font-size: 20px;
-        position: absolute;
-        left: 10px;
-    }
-    .toggle-btn.active::before {
-        transform: rotate(180deg);
-    }
-    .footer {
-        background-color: #a12441;
-        color: #fff;
-        text-align: center;
-        padding: 10px 0;
-        position: fixed;
-        bottom: 0;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 100%;
-        max-width: 400px;
-        z-index: 20;
-        border-radius: 0 0 10px 10px; /* Adding rounded corners to match the card */
-    }
-    .footer a {
-        color: #fff;
-        text-decoration: none;
-        font-weight: bold;
-        display: inline-block;
-        padding: 10px 20px;
-        border-radius: 10px;
-        background-color: #a12441;
-    }
-    a {
-        text-decoration: none;
-    }
-
-    @media (max-width: 600px) {
-        .icons {
-            flex-direction: column;
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
             align-items: center;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        .card {
+            width: 100%;
+            max-width: 400px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            text-align: left;
+            position: relative;
+            margin-bottom: 80px; /* Ensure space for fixed footer */
+        }
+        .header-img {
+            width: 100%;
+            height: 200px; /* Increased banner height */
+            object-fit: cover;
+        }
+        .profile-section {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+        }
+        .profile-img {
+            width: 100px; /* Increased profile image size */
+            height: 100px; /* Increased profile image size */
+            border-radius: 10px;
+            margin-right: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .profile-details h1 {
+            font-size: 18px;
+            font-family: Cambria; /* Suggested font for profile name */
+            color: #333;
+            margin: 0;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        .profile-details p {
+            font-size: 14px;
+            color: #666;
+            margin: 5px 0 0;
+        }
+        .icons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center; /* Center the icons horizontally */
+            padding: 15px;
         }
         .icon {
-            width: calc(50% - 20px); /* Adjusted for 2 columns with margins */
-            max-width: 100px; /* Max width for consistency */
+            width: 100px; /* Fixed width for each icon */
+            height: 120px; /* Fixed height for each icon */
+            background-color: #fff;
+            border: 2px solid #dedede;
+            border-radius: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Added shadow */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 10px;
+            flex-direction: column;
+            transition: transform 0.2s, box-shadow 0.2s;
         }
-    }
+        .icon img {
+            width: 35px; /* Increased icon size */
+            height: 35px; /* Increased icon size */
+            margin-bottom: 10px;
+        }
+        .icon span {
+            font-size: 12px;
+            font-family: Arial, sans-serif; /* Suggested font for icon text */
+            font-weight: bold;
+            color: #333;
+            text-align: center;
+            text-decoration: none;
+        }
+        .icon:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Added hover shadow */
+        }
+        .services-section {
+            background-color: #fff;
+            padding: 10px 15px;
+            border: 1px solid #dedede;
+            border-radius: 10px;
+            margin: 10px 0;
+            display: none;
+        }
+        .services-section.active {
+            display: block;
+        }
+        .toggle-btn {
+            color: #a12441;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+            display: block;
+            padding: 10px 15px;
+            margin: 15px 0;
+            background-color: #fff;
+            border: 1px solid #dedede;
+            border-radius: 10px;
+            width: calc(100% - 30px); /* Matching width with the card */
+            margin-left: auto;
+            margin-right: auto;
+            position: relative;
+            z-index: 1;
+        }
+        .toggle-btn::before {
+            content: "▼ ";
+            display: inline-block;
+            transition: transform 0.2s;
+            font-size: 20px;
+            position: absolute;
+            left: 10px;
+        }
+        .toggle-btn.active::before {
+            transform: rotate(180deg);
+        }
+        .footer {
+            background-color: #a12441;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            max-width: 400px;
+            z-index: 20;
+            border-radius: 0 0 10px 10px; /* Adding rounded corners to match the card */
+        }
+        .footer a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 10px;
+            background-color: #a12441;
+        }
+        a {
+            text-decoration: none;
+        }
+
+        /* Media query for smaller screens */
+        @media (max-width: 600px) {
+            .icons {
+                justify-content: flex-start; /* Align icons to start for mobile */
+            }
+            .icon {
+                width: calc(33.33% - 20px); /* Adjusted for 3 columns with margins */
+                max-width: 100px; /* Max width for consistency */
+                margin: 10px 5px; /* Adjust margins for spacing */
+            }
+        }
     </style>
 
 </head>
