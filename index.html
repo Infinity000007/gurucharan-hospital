@@ -155,29 +155,35 @@
             z-index: 20;
             border-radius: 0 0 10px 10px; /* Adding rounded corners to match the card */
         }
-        .footer a {
-            color: #fff;
-            text-decoration: none;
-            font-weight: bold;
-            display: inline-block;
-            padding: 10px 20px;
-            border-radius: 10px;
-            background-color: #a12441;
-        }
+       .footer a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    display: block; /* Display as block to cover full width */
+    padding: 10px 0; /* Vertical padding for better touch area */
+    background-color: #a12441;
+    border-radius: 0 0 10px 10px; /* Rounded corners only on bottom */
+    text-align: center; /* Center text horizontally */
+}
         a {
             text-decoration: none;
         }
 
         /* Media query for smaller screens */
         @media (max-width: 600px) {
-            .icons {
-                justify-content: flex-start; /* Align icons to start for mobile */
-            }
-            .icon {
-                width: calc(33.33% - 20px); /* Adjusted for 3 columns with margins */
-                max-width: 100px; /* Max width for consistency */
-                margin: 10px 5px; /* Adjust margins for spacing */
-            }
+           .icons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Center icons horizontally */
+    padding: 15px;
+}
+
+.icon {
+    width: calc(33.33% - 20px); /* Adjusted for 3 columns with margins */
+    max-width: 100px; /* Max width for consistency */
+    margin: 10px 10px; /* Adjusted margins for spacing */
+    text-align: center; /* Center text inside icon */
+}
         }
     </style>
 
@@ -240,6 +246,7 @@
                 <li>Microscopic Ear/Parotid/Thyroid Surgery</li>
                 <li>Audiometry/Hearing Aids</li>
                 <li>Rhinoplasty</li>
+				<li>And many more</li>
             </ul>
         </div>
     </div>
