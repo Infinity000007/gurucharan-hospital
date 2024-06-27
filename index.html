@@ -165,25 +165,20 @@
     border-radius: 0 0 10px 10px; /* Rounded corners only on bottom */
     text-align: center; /* Center text horizontally */
 }
-        a {
-            text-decoration: none;
-        }
-
-        /* Media query for smaller screens */
-        @media (max-width: 600px) {
-           .icons {
-    display: flex;
-    flex-wrap: wrap;
+        .icons {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columns */
     justify-content: center; /* Center icons horizontally */
+    gap: 10px; /* Adjusted gap between icons */
     padding: 15px;
 }
 
 .icon {
-    width: calc(33.33% - 20px); /* Adjusted for 3 columns with margins */
+    width: 100%; /* Full width for each icon */
     max-width: 100px; /* Max width for consistency */
-    margin: 10px 10px; /* Adjusted margins for spacing */
     text-align: center; /* Center text inside icon */
 }
+
         }
     </style>
 
