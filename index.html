@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Card</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        .card {
+            width: 100%;
+            max-width: 400px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            text-align: left;
+            position: relative;
+            margin-bottom: 80px; /* Ensure space for fixed footer */
+        }
+        .header-img {
+            width: 100%;
+            height: 200px; /* Increased banner height */
+            object-fit: cover;
+        }
+        .profile-section {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+        }
+        .profile-img {
+            width: 100px; /* Increased profile image size */
+            height: 100px; /* Increased profile image size */
+            border-radius: 10px;
+            margin-right: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .profile-details h1 {
+            font-size: 18px;
+            font-family: Cambria; /* Suggested font for profile name */
+            color: #333;
+            margin: 0;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        .profile-details p {
+            font-size: 14px;
+            color: #666;
+            margin: 5px 0 0;
+        }
+        .icons {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* 3 columns layout */
+            gap: 10px; /* Space between icons */
+            padding: 15px;
+        }
+        .icon {
+            width: 100px;
+            height: 120px;
+            background-color: #fff;
+            border: 2px solid #dedede;
+            border-radius: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 10px auto; /* Center each icon */
+            flex-direction: column;
+            text-decoration: none; /* Remove underline */
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .icon img {
+            width: 35px;
+            height: 35px;
+            margin-bottom: 10px;
+        }
+        .icon span {
+            font-size: 12px;
+            font-family: Arial, sans-serif; /* Suggested font for icon text */
+            font-weight: bold;
+            color: #333;
+            text-align: center;
+            text-decoration: none; /* Remove underline */
+        }
+        .icon:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Added hover shadow */
+        }
+        .services-section {
+            background-color: #fff;
+            padding: 10px 15px;
+            border: 1px solid #dedede;
+            border-radius: 10px;
+            margin: 10px 0;
+            display: none;
+        }
+        .services-section.active {
+            display: block;
+        }
+        .toggle-btn {
+            color: #a12441;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+            display: block;
+            padding: 10px 15px;
+            margin: 15px 0;
+            background-color: #fff;
+            border: 1px solid #dedede;
+            border-radius: 10px;
+            width: calc(100% - 30px); /* Matching width with the card */
+            margin-left: auto;
+            margin-right: auto;
+            position: relative;
+            z-index: 1;
+        }
+        .toggle-btn::before {
+            content: "▼ ";
+            display: inline-block;
+            transition: transform 0.2s;
+            font-size: 20px;
+            position: absolute;
+            left: 10px;
+        }
+        .toggle-btn.active::before {
+            transform: rotate(180deg);
+        }
+        .footer {
+            background-color: #a12441;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            max-width: 400px;
+            z-index: 20;
+            border-radius: 0 0 10px 10px; /* Adding rounded corners to match the card */
+        }
+        .footer a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            display: block; /* Display as block to cover full width */
+            padding: 10px 0; /* Vertical padding for better touch area */
+            background-color: #a12441;
+            border-radius: 0 0 10px 10px; /* Rounded corners only on bottom */
+            text-align: center; /* Center text horizontally */
+        }
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            .icons {
+                grid-template-columns: repeat(3, 1fr); /* 3 columns layout for mobile */
+                gap: 5px; /* Reduced space between icons for mobile */
+            }
+            .icon {
+                width: 80px;
+                height: 100px;
+                margin: 5px auto; /* Reduced margin for mobile */
+            }
+            .icon img {
+                width: 30px; /* Reduced image size for mobile */
+                height: 30px;
+            }
+            .icon span {
+                font-size: 10px; /* Reduced text size for mobile */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <img src="https://github.com/Infinity000007/card/blob/main/WhatsApp%20Image%202024-06-14%20at%207.52.41%20PM.jpeg?raw=true" alt="Header Image" class="header-img">
+        <div class="profile-section">
+            <img src="https://github.com/Infinity000007/card/blob/main/profile.jpg?raw=true" alt="Profile Image" class="profile-img">
+            <div class="profile-details">
+                <h1>Dr. Parmanand Bhakt</h1>
+                <p>Director (MS. ENT)</p>
+            </div>
+        </div>
+        <div class="icons">
+            <a href="tel:9823451613" class="icon" title="Call">
+                <img src="https://github.com/Infinity000007/card/blob/main/Gg_page-0001.jpg?raw=true" alt="Call">
+                <span>CALL</span>
+            </a>
+            <a href="mailto:Gchjalna@gmail.com" class="icon" title="Email">
+                <img src="https://github.com/Infinity000007/card/blob/main/Vector_page-0001.jpg?raw=true" alt="Email">
+                <span>EMAIL</span>
+            </a>
+            <a href="https://www.google.com/maps/place/Dr.+Parmanand+Bhakt's+GURUCHARAN+ENT+Head+Neck+Superspeciality+Hospital+-+Dr+Bhakt's+Best+ENT+hospital+in+Jalna,+Maharastra.,+Bhakt+Nagar,+Old,+Road,+Ambad+-+Mantha+Bypass,+near+C.P.+Bhakt+College,+Revgaon,+Jalna,+Maharashtra+431203/data=!4m2!3m1!1s0x3bda57f3db300f8d:0x513f108379a2c495?utm_source=mstt_1&entry=gps&coh=192189&g_ep=CAESCjExLjEyNy4xMDIYACCs3wEqYyw5NDIyMjM1NSw5NDIyMzI5OSw5NDIxNjQxMyw5NDIxMjQ5Niw5NDIwNzUwNiw5NDIwODUwNiw5NDIxNzUyMyw5NDIxODY1Myw0NzA4NzExOCw0NzA4NDM5Myw5NDIxMzIwMEICSU4%3D" class="icon" title="Location" target="_blank">
+                <img src="https://github.com/Infinity000007/card/blob/main/Vector%20l_page-0001.jpg?raw=true alt="Location">
+                <span>LOCATION</span>
+            </a>
+            <a href="https://wa.me/+919823451613" class="icon" title="WhatsApp" target="_blank">
+                <img src="https://github.com/Infinity000007/card/blob/main/Vector%207_page-0001.jpg?raw=true" alt="WhatsApp">
+                <span>WHATSAPP</span>
+            </a>
+            <a href="https://youtube.com/@gurucharanhospital?feature=shared" class="icon" title="YouTube" target="_blank">
+                <img src="https://github.com/Infinity000007/card/blob/main/Vector%204_page-0001.jpg?raw=true" alt="YouTube">
+                <span>YOUTUBE</span>
+            </a>
+            <a href="https://www.instagram.com/gurucharan_hospital?igsh=aGs5ZW12emhwd2ls" class="icon" title="Instagram" target="_blank">
+                <img src="https://github.com/Infinity000007/card/blob/main/Vector%208_page-0001.jpg?raw=true" alt="Instagram">
+                <span>INSTAGRAM</span>
+            </a>
+            <a href="https://www.facebook.com/Gurucharan.Hospital?mibextid=ZbWKwL" class="icon" title="Facebook" target="_blank">
+                <img src="https://github.com/Infinity000007/card/blob/main/Vector%203_page-0001.jpg?raw=true" alt="Facebook">
+                <span>FACEBOOK</span>
+            </a>
+            <a href="https://www.linkedin.com" class="icon" title="LinkedIn" target="_blank">
+                <img src="https://github.com/Infinity000007/card/blob/main/Vector%201%20(1)_page-0001.jpg?raw=true" alt="LinkedIn">
+                <span>LINKEDIN</span>
+            </a>
+            <a class="icon" title="Website">
+                <img src="https://github.com/Infinity000007/card/blob/main/Vector%206_page-0001.jpg?raw=true" alt="Website">
+                <span>WEBSITE</span>
+            </a>
+        </div>
+        <p class="toggle-btn" id="toggleServices">About Our Services</p>
+        <div class="services-section" id="servicesSection">
+            <ul>
+                <li>Endoscopic Surgery</li>
+                <li>Micro-Debrider</li>
+                <li>Coblator Surgery Head Neck Cancer Surgery</li>
+                <li>Diagnostic Endoscopy & Therapeutic/Bronchoscopy</li>
+                <li>Microscopic Ear/Parotid/Thyroid Surgery</li>
+                <li>Audiometry/Hearing Aids</li>
+                <li>Rhinoplasty</li>
+                <li>And many more</li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer">
+        <a href="tel:9988728111">Add to Contacts</a>
+    </div>
+
+    <script>
+        document.getElementById("toggleServices").addEventListener("click", function() {
+            this.classList.toggle("active");
+            document.getElementById("servicesSection").classList.toggle("active");
+        });
+    </script>
+</body>
+</html>
